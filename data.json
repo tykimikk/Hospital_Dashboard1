@@ -1,0 +1,134 @@
+[
+  {
+    "550885143": {
+      "nom": "Retim",
+      "prenom": "Fatiha",
+      "age": 41,
+      "date_E": "12/12/20",
+      "date_S": "Inconnu",
+      "sejour": "Inconnu",
+      "sex": false,
+      "imc": "",
+      "motifs": [
+        "Ch"
+      ],
+      "dlr": false,
+      "vom": false,
+      "sps": [],
+      "fievre": false,
+      "asthenie": false,
+      "aeg": false,
+      "sirs": false,
+      "gb": 7.1,
+      "hb": 14.0,
+      "plq": 240.0,
+      "lip": 7,
+      "crp": true,
+      "bio_autres": {},
+      "echo": "Hydrocholocycte",
+      "balt": "C",
+      "rea": true,
+      "anta": 2,
+      "atbq": [],
+      "evod": [],
+      "trtmed": true,
+      "trtchir": false,
+      "moment": "none",
+      "pourquoi": "",
+      "suites": true
+    }
+  },
+  {
+    "231321": {
+      "nom": "Baiche",
+      "prenom": "Safi",
+      "age": 31,
+      "date_E": "12/12/19",
+      "date_S": "Inconnu",
+      "sejour": "Inconnu",
+      "sex": true,
+      "imc": "",
+      "motifs": [
+        "Epigastralgie"
+      ],
+      "dlr": true,
+      "vom": false,
+      "sps": [],
+      "fievre": false,
+      "asthenie": false,
+      "aeg": false,
+      "sirs": false,
+      "gb": 14.0,
+      "hb": 14.0,
+      "plq": 247.0,
+      "lip": 7,
+      "crp": false,
+      "bio_autres": {},
+      "echo": "",
+      "balt": "C",
+      "rea": false,
+      "anta": 1,
+      "atbq": [],
+      "evod": [],
+      "trtmed": true,
+      "trtchir": false,
+      "moment": "none",
+      "pourquoi": "",
+      "suites": true
+    }
+  },
+  {
+    "9988774": {
+      "nom": "Fedane",
+      "prenom": "Ali",
+      "age": 25,
+      "date_E": "02/12/21",
+      "date_S": "02/24/21",
+      "sejour": 12,
+      "sex": true,
+      "imc": "24",
+      "motifs": [
+        "Epigastralgie",
+        "Trouble de transit"
+      ],
+      "dlr": true,
+      "vom": true,
+      "sps": [
+        "Sensibilite epigastrique"
+      ],
+      "fievre": true,
+      "asthenie": false,
+      "aeg": false,
+      "sirs": true,
+      "gb": 16.0,
+      "hb": 14.0,
+      "plq": 240.0,
+      "lip": 12,
+      "crp": true,
+      "bio_autres": {
+        "ALAT": [
+          "55",
+          "Ml"
+        ],
+        "BD": [
+          "280",
+          "Mg"
+        ]
+      },
+      "echo": "Pancreas tumufie hyperechogene",
+      "balt": "D",
+      "rea": true,
+      "anta": 3,
+      "atbq": [
+        true,
+        true
+      ],
+      "evod": [],
+      "trtmed": true,
+      "trtchir": true,
+      "moment": true,
+      "pourquoi": "",
+      "suites": true
+    }
+  }
+]
