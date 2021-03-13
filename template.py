@@ -8,8 +8,8 @@ from docx2pdf import convert
 
 def date(dt):
     dtl = dt.split("/")
-    d = int(dtl[0])
-    m = int(dtl[1])
+    d = int(dtl[1])
+    m = int(dtl[0])
     y = int(dtl[2])+2000
     x = datetime.datetime(y, m, d)
     return x
@@ -46,7 +46,7 @@ for i in data:
     p.add_run(info["prenom"])
 
     p = document.add_paragraph()
-    p.add_run("Date d'entre : ").bold = True
+    p.add_run("Date d'entré : ").bold = True
     p.add_run(str(date_E))
 
     p = document.add_paragraph()
@@ -58,7 +58,7 @@ for i in data:
     p = document.add_paragraph()
     p_format = p.paragraph_format
     p_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.add_run("Duree du sejour hospitalier : ").bold = True
+    p.add_run("Durée du sejour hospitalier : ").bold = True
     if info["sejour"] == "Inconnu":
         p.add_run(str(info["sejour"]))
     else:
@@ -78,7 +78,7 @@ for i in data:
     p = document.add_paragraph()
     p.add_run("IMC: ").bold = True
     if not info["imc"]:
-        p.add_run("Non calcule")
+        p.add_run("Pas calculé")
     else:
         p.add_run(str(info["imc"]))
 
@@ -88,16 +88,16 @@ for i in data:
 
     document.add_heading('Tableau clinique', level=1)
     # ☑
-    document.add_heading('Signes Generaux', level=2)
+    document.add_heading('Signes Généraux', level=2)
     p = document.add_paragraph()
     if info["fievre"]:
         p.add_run("   ☑ Fievre     ").bold = True
     else:
         p.add_run("   ☐ Fievre     ").bold = True
     if info["asthenie"]:
-        p.add_run("   ☑ Asthenie     ").bold = True
+        p.add_run("   ☑ Asthénie     ").bold = True
     else:
-        p.add_run("   ☐ Asthenie     ").bold = True
+        p.add_run("   ☐ Asthénie     ").bold = True
     if info["aeg"]:
         p.add_run("   ☑ AEG  ").bold = True
     else:
@@ -115,7 +115,7 @@ for i in data:
         p.add_run(" ☑ OUI         ☐ NON")
     else:
         p.add_run(" ☐ OUI         ☑ NON")
-    document.add_heading('Signes physiques normal', level=2)
+    document.add_heading('Signes physiques : Normal?', level=2)
     p = document.add_paragraph()
 
     if info["sps"] == []:
@@ -133,11 +133,11 @@ for i in data:
     document.add_heading('Examens biologique', level=1)
     document.add_heading('FNS', level=2)
     p = document.add_paragraph()
-    p.add_run("        Gb : "+str(info["gb"])).bold = True
-    p.add_run("        Hb : "+str(info["hb"])).bold = True
-    p.add_run("        Plq : "+str(info["plq"])).bold = True
+    p.add_run("        Gb : "+str(info["gb"]) + " x10³/mm³").bold = True
+    p.add_run("        Hb : "+str(info["hb"]) + " g/dl").bold = True
+    p.add_run("        Plq : "+str(info["plq"]) + " x10³/mm³").bold = True
     document.add_heading(
-        'Lipasemie : '+str(info["lip"]) + "x  normal", level=2)
+        'Lipasémie : '+str(info["lip"]) + "x  normal", level=2)
     document.add_heading('CRP', level=2)
     p = document.add_paragraph()
     if info["crp"]:
@@ -150,13 +150,13 @@ for i in data:
             document.add_paragraph(i, style='List Bullet')
 
     document.add_heading('Examens radiologiques', level=1)
-    document.add_heading('Echographie', level=2)
+    document.add_heading('Echographie abdomino-pelvienne', level=2)
     p = document.add_paragraph()
     p.add_run(info["echo"])
     document.add_heading(
         'TDM avec ou sans injection : Score Baltazard [ ' + info["balt"] + " ]", level=2)
-    document.add_heading('Conduite ', level=1)
-    document.add_heading('Mesures de reanimation', level=2)
+    document.add_heading('Conduite thérapeutique ', level=1)
+    document.add_heading('Mésures de réanimation', level=2)
     p = document.add_paragraph()
     if info["rea"]:
 
@@ -165,21 +165,33 @@ for i in data:
         p.add_run(" ☐ OUI         ☑ NON")
     document.add_heading('Antalgique', level=2)
     p = document.add_paragraph()
-    p.add_run(" Palier : " + str(info["anta"]))
-
-    document.add_heading('Antibiotherapie', level=2)
+    p.add_run(" Palier : " + str(info["anta"])).bold = True
+    if not info["atbq"] == []:
+        document.add_heading('Antibiothérapie', level=2)
+        p = document.add_paragraph()
+        p.add_run(" Fievre").bold = True
+        if info["atbq"][0]:
+            p.add_run(" ☑ OUI         ☐ NON")
+        else:
+            p.add_run(" ☐ OUI         ☑ NON")
+        p = document.add_paragraph()
+        p.add_run(" Elevation du Gb").bold = True
+        if info["atbq"][1]:
+            p.add_run(" ☑ OUI         ☐ NON")
+        else:
+            p.add_run(" ☐ OUI         ☑ NON")
     document.add_heading('Evolution', level=2)
     p = document.add_paragraph()
 
     if info["evod"] == []:
-        p.add_run(" ☑ Favorable         ☐ Defavorable").bold = True
+        p.add_run(" ☑ Favorable         ☐ Défavorable").bold = True
     else:
-        p.add_run(" ☐ Favorable         ☑ Defavorable").bold = True
+        p.add_run(" ☐ Favorable         ☑ Défavorable").bold = True
         for i in info["evod"]:
             document.add_paragraph(i, style='List Bullet')
     document.add_heading('Treatement', level=2)
     p = document.add_paragraph()
-    p.add_run(" Medical   ").bold = True
+    p.add_run(" Médical   ").bold = True
     if info["trtmed"]:
 
         p.add_run(" ☑ OUI         ☐ NON")
@@ -208,7 +220,7 @@ for i in data:
         for i in info["pourquoi"]:
             document.add_paragraph(i, style='List Bullet')
 
-    document.add_heading('Suites post operatoires', level=1)
+    document.add_heading('Suites post hospitaliers', level=1)
     p = document.add_paragraph()
     if info["suites"]:
 

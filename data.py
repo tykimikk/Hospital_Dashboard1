@@ -108,14 +108,11 @@ crp = 0
 if int(input("")) > 10:
     crp = 1
 crp = bool(crp)
-bio_autres = {}
+bio_autres = []
 while True:
     bio = input("Autre signes biologiques: ")
     if bool(bio):
-        sign = bio.split("-")[0].upper()
-        quan = bio.split("-")[1]
-        ter = bio.split("-")[2].capitalize()
-        bio_autres[sign] = [quan, ter]
+        bio_autres.append(bio)
     else:
         break
 echo = input("Echographie .. ").capitalize()
