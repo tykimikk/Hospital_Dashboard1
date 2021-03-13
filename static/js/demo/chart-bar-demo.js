@@ -26,20 +26,24 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
-
+console.log(casesbalt.A.length)
+console.log(casesbalt.B.length)
+console.log(casesbalt.C.length)
+console.log(casesbalt.D.length)
+console.log(casesbalt.E.length)
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: [" Score A", "Score B", "Score C", "Score D", "Score E"],
     datasets: [{
-      label: "Revenue",
-      backgroundColor: "#4e73df",
-      hoverBackgroundColor: "#2e59d9",
-      borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
-    }],
+      label: "Cas",
+      backgroundColor: "#ECB390",
+      hoverBackgroundColor: "#DF7962",
+      borderColor: "#ECB390",
+      data: [casesbalt.A.length, casesbalt.B.length, casesbalt.C.length, casesbalt.D.length, casesbalt.E.length],
+    }]
   },
   options: {
     maintainAspectRatio: false,
@@ -63,17 +67,17 @@ var myBarChart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 6
         },
-        maxBarThickness: 25,
+        maxBarThickness : 30,
       }],
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 20,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return  number_format(value) + " Cas";
           }
         },
         gridLines: {
@@ -103,7 +107,7 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return  number_format(tooltipItem.yLabel) + " " +  datasetLabel;
         }
       }
     },

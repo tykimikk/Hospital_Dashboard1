@@ -14,6 +14,7 @@
     <script>
         casesmonth = myfnx({{ casesMonth|tojson }});
         casesage = myfnx({{ casesAge|tojson}});
+        casesbalt = myfnx({{ casesBalt|tojson}});
     </script>
     
         
@@ -250,7 +251,10 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
+                                        
                                     </div>
+                                    <hr>
+                                        <p>Some Comments</p>
                                 </div>
                             </div>
 
@@ -284,24 +288,42 @@
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
+                                        
                                     </div>
+                                    
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-success"></i> Moins de 20 
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-warning"></i> 20 a 40 
+                                            <i class="fas fa-circle text-warning"></i> 20 à 40 
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> 40 a 60 
+                                            <i class="fas fa-circle text-info"></i> 40 à 60 
                                         </span>
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-primary"></i> Plus de 60
                                         </span>
                                     </div>
+                                    <hr>
+                                        <p>Some Comments</p>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xl-8 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Répartition des cas selon le score TDM (Balthazar)</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-bar">
+                                    <canvas id="myBarChart"></canvas>
+                                </div>
+                                <hr>
+                                <p>Some Comments</p> 
+                            </div>
+                        </div>
+                    </div>
                     </div>
 
                 </div>

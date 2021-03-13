@@ -120,6 +120,18 @@ for i in infos:
         casesAge["fts"].append(i["nom"])
     elif i["age"] > 60:
         casesAge["six"].append(i["nom"])
+casesBalt = defaultdict(list)
+for i in infos:
+    if i["balt"] == "A":
+        casesBalt["A"].append(i["nom"])
+    elif i["balt"] == "B":
+        casesBalt["B"].append(i["nom"])
+    elif i["balt"] == "C":
+        casesBalt["C"].append(i["nom"])
+    elif i["balt"] == "D":
+        casesBalt["D"].append(i["nom"])
+    elif i["balt"] == "E":
+        casesBalt["E"].append(i["nom"])
 
 
 @ app.route('/login')
@@ -129,12 +141,12 @@ def login():
 
 @ app.route('/')
 def index():
-    return render_template("index.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge)
+    return render_template("index.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge, casesBalt=casesBalt)
 
 
 @ app.route('/charts')
 def charts():
-    return render_template("charts.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge)
+    return render_template("charts.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge, casesBalt=casesBalt)
 
 
 @ app.route('/tables')
