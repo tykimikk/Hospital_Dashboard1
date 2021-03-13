@@ -132,6 +132,18 @@ for i in infos:
         casesBalt["D"].append(i["nom"])
     elif i["balt"] == "E":
         casesBalt["E"].append(i["nom"])
+casesTrt = defaultdict(list)
+for i in infos:
+    if i["trtchir"]:
+        casesTrt["chir"].append(i["nom"])
+    else:
+        casesTrt["med"].append(i["nom"])
+sirs = defaultdict(list)
+for i in infos:
+    if i["sirs"]:
+        sirs["pos"].append(i["nom"])
+    else:
+        sirs["neg"].append(i["nom"])
 
 
 @ app.route('/login')
@@ -146,7 +158,7 @@ def index():
 
 @ app.route('/charts')
 def charts():
-    return render_template("charts.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge, casesBalt=casesBalt)
+    return render_template("charts.html", casesMonth=casesMonth, casesAge=casesAge, casesBalt=casesBalt,  casesTrt=casesTrt, sirs=sirs)
 
 
 @ app.route('/tables')

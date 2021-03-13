@@ -54,7 +54,7 @@
       "sex": true,
       "imc": "",
       "motifs": [
-        "\u00c9pigqstrqlgie",
+        "\u00c9pigastralgie",
         "Subictere conjonctivale",
         "Troubles de transit"
       ],
@@ -62,7 +62,7 @@
       "vom": false,
       "sps": [
         "Cicatrice cholecyctectomie",
-        "Sensibilit\u00e9 \u00e9pigqstrique"
+        "Sensibilit\u00e9 \u00e9pigastrique"
       ],
       "fievre": true,
       "asthenie": false,
@@ -107,7 +107,7 @@
       "vom": false,
       "sps": [
         "Cicatrice mac burney",
-        "Sensibilit\u00e9 \u00e9pigqstrique"
+        "Sensibilit\u00e9 \u00e9pigastrique"
       ],
       "fievre": false,
       "asthenie": false,
@@ -162,7 +162,7 @@
       "lip": 5,
       "crp": true,
       "bio_autres": [
-        "Hyponatr\u00c3\u00a9mie"
+        "Hyponatr\u00e9mie"
       ],
       "echo": "",
       "balt": "C",
@@ -433,7 +433,7 @@
       "lip": 9,
       "crp": false,
       "bio_autres": [],
-      "echo": "V\u00c3\u00a9sicule biliaire a paroi fines multi microlithiasique / canal cystique large",
+      "echo": "V\u00e9sicule biliaire a paroi fines multi microlithiasique / canal cystique large",
       "balt": "C",
       "rea": false,
       "anta": 1,
@@ -786,7 +786,7 @@
       "lip": 3,
       "crp": false,
       "bio_autres": [],
-      "echo": "v\u00c3\u00a9sicule biliaire miltimicrolithiasique",
+      "echo": "v\u00e9sicule biliaire miltimicrolithiasique",
       "balt": "A",
       "rea": false,
       "anta": 1,
@@ -828,7 +828,7 @@
       "lip": 7,
       "crp": true,
       "bio_autres": {},
-      "echo": "Hydrochol\u00c3\u00a9cycte",
+      "echo": "Hydrochol\u00e9cycte",
       "balt": "C",
       "rea": true,
       "anta": 1,
@@ -837,7 +837,7 @@
       "trtmed": true,
       "trtchir": true,
       "moment": false,
-      "pourquoi": "chol\u00c3\u00a9cyctectomie",
+      "pourquoi": "chol\u00e9cyctectomie",
       "suites": true
     }
   },
@@ -1185,7 +1185,7 @@
       "anta": 2,
       "atbq": [],
       "evod": [
-        "hypokali\u00c3\u00a9mie",
+        "hypokali\u00e9mie",
         "transfer au reanimation"
       ],
       "trtmed": true,
@@ -1431,7 +1431,7 @@
       "vom": false,
       "sps": [
         "Sensibilit\u00e9 \u00e9pigastrique ",
-        "Sensibilit\u00e9 hcd"
+        "Sensibilit\u00e9 HCD"
       ],
       "fievre": false,
       "asthenie": false,
