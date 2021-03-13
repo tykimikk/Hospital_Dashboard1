@@ -800,7 +800,7 @@
     }
   },
   {
-    "550885143": {
+    "55020": {
       "nom": "Retim",
       "prenom": "Charifa",
       "age": 41,
@@ -810,13 +810,13 @@
       "sex": false,
       "imc": "",
       "motifs": [
-        "\u00c3\u00a9pigastralgie"
+        "\u00e9pigastralgie"
       ],
       "dlr": false,
       "vom": false,
       "sps": [
-        "sensibilit\u00c3\u00a9 \u00c3\u00a9pigastrique",
-        "sensibilit\u00c3\u00a9 HCD"
+        "sensibilit\u00e9 u00a9pigastrique",
+        "sensibilit\u00a9 HCD"
       ],
       "fievre": false,
       "asthenie": false,
