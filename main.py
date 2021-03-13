@@ -154,6 +154,13 @@ def add():
 
 @ app.route('/archive/<name>')
 def download(name):
+    try:
+        files = os.listdir(os.getcwd()+"/docx")
+        for i in files:
+            print(i)
+            os.remove(os.getcwd()+"/docx/"+i)
+    except:
+        os.mkdir("docx")
     dc.wordmaker(name)
     return send_file(os.getcwd() + "/docx/"+name + ".docx", as_attachment=True)
 
