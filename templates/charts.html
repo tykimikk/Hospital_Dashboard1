@@ -231,8 +231,7 @@
                             <!-- Area Chart -->
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Le nombre des cas par le temps</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -241,9 +240,9 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">...</div>
-                                            <a class="dropdown-item" href="#">Enregistrer comme png</a>
-                                            <a class="dropdown-item" href="#">Enregistrer comme pdf</a>
+                                            
+                                            <a class="downloadPng dropdown-item" download="myAreaChart">Enregistrer comme png</a>
+                                            
                                             
                                         </div>
                                     </div>
@@ -264,8 +263,21 @@
                         </div>
                         <div class="col-xl-6 col-lg-7">
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Répartition des cas selon le score TDM (Balthazar)</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink">
+                                        
+                                        <a class="downloadPng dropdown-item" download="myBarChart">Enregistrer comme png</a>
+                                        
+                                        
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="chart-bar">
@@ -278,8 +290,21 @@
                     </div>
                     <div class="col-xl-6 col-lg-7">
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Répartition des cas selon La Lipasémie et l'évolution</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink">
+                                        
+                                        <a class="downloadPng dropdown-item" download="lipaseLines">Enregistrer comme png</a>
+                                        
+                                        
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="chart-bar">
@@ -305,9 +330,9 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">...</div>
-                                        <a class="dropdown-item" href="#">Enregistrer comme png</a>
-                                        <a class="dropdown-item" href="#">Enregistrer comme pdf</a>
+                                        
+                                        <a class="downloadPng dropdown-item" download="trtmedChir">Enregistrer comme png</a>
+                                        
                                         
                                     </div>
                                 </div>
@@ -347,9 +372,9 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">...</div>
-                                        <a class="dropdown-item" href="#">Enregistrer comme png</a>
-                                        <a class="dropdown-item" href="#">Enregistrer comme pdf</a>
+                                        
+                                        <a class="downloadPng dropdown-item" download="sirs">Enregistrer comme png</a>
+                                        
                                         
                                     </div>
                                 </div>
@@ -390,9 +415,9 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">...</div>
-                                            <a class="dropdown-item" href="#">Enregistrer comme png</a>
-                                            <a class="dropdown-item" href="#">Enregistrer comme pdf</a>
+                                            
+                                            <a class="downloadPng dropdown-item" download="myPieChart">Enregistrer comme png</a>
+                                            
                                             
                                         </div>
                                     </div>
@@ -491,7 +516,9 @@
     <script src="static/js/demo/area.js"></script>
     <script src="static/js/demo/pie.js"></script>
     <script src="static/js/demo/bar.js"></script>
+    <script src="static/js/demo/download.js"></script>
 
+    
 </body>
 
 </html>

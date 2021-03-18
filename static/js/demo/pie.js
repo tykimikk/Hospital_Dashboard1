@@ -35,6 +35,7 @@ var myPieChart = new Chart(ctx, {
 });
 
 
+
 // TRT
 var trtc = document.getElementById("trtmedChir");
 var trtmedChir = new Chart(trtc, {
@@ -67,7 +68,7 @@ var trtmedChir = new Chart(trtc, {
   },
 });
 
-// TRT
+// SIRS
 var sirsl = document.getElementById("sirs");
 var sirs = new Chart(sirsl, {
   type: 'doughnut',

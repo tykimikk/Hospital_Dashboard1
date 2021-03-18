@@ -1,6 +1,5 @@
-from flask import Flask
-from flask import render_template, send_file
-from flask import request
+from flask import Flask, render_template, request, url_for, redirect, flash, send_from_directory, send_file
+from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 import requests
 import datetime
 import json
@@ -66,10 +65,15 @@ def getYear(dt):
     return x
 
 
+password = "gh1996gh"
 infos = []
 malenb = 0
 dlrtypique = 0
 evol = 0
+vom = 0
+fievre = 0
+asthenie = 0
+aeg = 1
 with open("data.json", "r") as d:
     data = json.load(d)
 for i in data:
@@ -85,11 +89,26 @@ for i in infos:
 for i in infos:
     if i["suites"]:
         evol = evol + 1
+    if i["vom"]:
+        vom = vom + 1
+    if i["fievre"]:
+        fievre = fievre + 1
+    if i["asthenie"]:
+        asthenie = asthenie + 1
+    if i["aeg"]:
+        aeg = aeg + 1
 cases = len(data)
 ratio = int((malenb / cases)*100)
 dlrt = int((dlrtypique/cases)*100)
 evolfav = int((evol/cases)*100)
+vom = int((vom/cases)*100)
+aeg = int((aeg/cases)*100)
+asthenie = int((asthenie/cases)*100)
+fievre = int((fievre/cases)*100)
+
+
 casesMonth = defaultdict(list)
+
 months = ['Jan',
           'Feb',
           'Mar',
@@ -153,7 +172,7 @@ def login():
 
 @ app.route('/')
 def index():
-    return render_template("index.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge, casesBalt=casesBalt)
+    return render_template("index.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge, casesTrt=casesTrt, sirs=sirs, vom=vom, aeg=aeg, asthenie=asthenie, fievre=fievre)
 
 
 @ app.route('/charts')

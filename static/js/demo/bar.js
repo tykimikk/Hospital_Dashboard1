@@ -26,11 +26,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
-console.log(casesbalt.A.length)
-console.log(casesbalt.B.length)
-console.log(casesbalt.C.length)
-console.log(casesbalt.D.length)
-console.log(casesbalt.E.length)
+
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {

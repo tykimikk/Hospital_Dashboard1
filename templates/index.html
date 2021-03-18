@@ -14,6 +14,8 @@
     <script>
         casesmonth = myfnx({{ casesMonth|tojson }});
         casesage = myfnx({{ casesAge|tojson}});
+        casestrt = myfnx({{ casesTrt|tojson}});
+        sirs = myfnx({{ sirs|tojson}});
         
     </script>
     
@@ -357,9 +359,9 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">...</div>
-                                            <a class="dropdown-item" href="#">Enregistrer comme png</a>
-                                            <a class="dropdown-item" href="#">Enregistrer comme pdf</a>
+                                            
+                                            <a class="downloadPng dropdown-item" download="myAreaChart">Enregistrer comme png</a>
+                                            
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="/charts">Autre Graphs</a>
                                         </div>
@@ -388,9 +390,8 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">...</div>
-                                            <a class="dropdown-item" href="#">Enregistrer comme png</a>
-                                            <a class="dropdown-item" href="#">Enregistrer comme pdf</a>
+                                            
+                                            <a class="downloadPng dropdown-item" download="myPieChart">Enregistrer comme png</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="/charts">Autre Graphs</a>
                                         </div>
@@ -433,34 +434,34 @@
                                 </div>
                                 <div class="card-body">
                                     <h4 class="small font-weight-bold">Epigastralgie<span
-                                            class="float-right">100%</span></h4>
+                                            class="float-right">{{dlrt}} %</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
-                                            aria-valuenow=100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{dlrt}}%"
+                                            aria-valuenow="{{dlrt}}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Vomissements<span
-                                            class="float-right">40%</span></h4>
+                                            class="float-right">{{vom}} %</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{vom}}%"
+                                            aria-valuenow="{{vom}}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Asthénie<span
-                                            class="float-right">20%</span></h4>
+                                            class="float-right">{{asthenie}} %</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: {{asthenie}}%"
+                                            aria-valuenow="{{asthenie}}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Fievre<span
-                                            class="float-right">50%</span></h4>
+                                            class="float-right">{{fievre}} %</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{fievre}}%"
+                                            aria-valuenow="{{fievre}}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Altération de l'état géneral<span
-                                            class="float-right">10</span></h4>
+                                            class="float-right">{{aeg}} %</span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%"
-                                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{aeg}}%"
+                                            aria-valuenow="{{aeg}}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -561,6 +562,7 @@
     <!-- Page level custom scripts -->
     <script src="static/js/demo/area.js"></script>
     <script src="static/js/demo/pie.js"></script>
+    <script src="static/js/demo/download.js"></script>
 
 </body>
 
