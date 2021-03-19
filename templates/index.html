@@ -12,7 +12,9 @@
     <!-- proxy tags-->
     <script src="{{ url_for('static', filename='js/demo/data.js') }}"></script>
     <script>
-        casesmonth = myfnx({{ casesMonth|tojson }});
+        casesmonth19 = myfnx({{ casesMonth19|tojson }});
+        casesmonth20 = myfnx({{ casesMonth20|tojson }});
+        casesmonth21 = myfnx({{ casesMonth21|tojson }});
         casesage = myfnx({{ casesAge|tojson}});
         casestrt = myfnx({{ casesTrt|tojson}});
         sirs = myfnx({{ sirs|tojson}});
@@ -34,6 +36,9 @@
     <!-- Custom styles for this template-->
     <link href="static/css/sb-admin-2.css" rel="stylesheet">
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/style-adsila.css" />
 
 </head>
 
@@ -64,7 +69,7 @@
             <!-- Divider -->
             
             <hr class="sidebar-divider">
-
+            {% if current_user.is_authenticated %}
             <!-- Heading -->
             <div class="sidebar-heading">
                 AdminBoard
@@ -80,7 +85,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             
-
+            {% endif %}
             <!-- Heading -->
             <div class="sidebar-heading">
                 Plus des Donnés
@@ -178,7 +183,7 @@
 
                         
                             
-
+                        {% if current_user.is_authenticated %}
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -194,14 +199,6 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -209,6 +206,16 @@
                                 </a>
                             </div>
                         </li>
+                        {% else %}
+                        <nav class="menu menu--adsila">
+                            <a class="menu__item" href="/login">
+                                <span class="menu__item-name">Connectez</span>
+                                <span class="menu__item-label">vous!</span>
+                            </a>
+                            
+                        </nav>
+                        
+                        {% endif %}
 
                     </ul>
 
@@ -352,6 +359,7 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Le nombre des cas par le temps</h6>
+                                    
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -371,8 +379,21 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
+                                       
+                                    </div>
+                                    <hr>
+                                    <div class="mt-4 text-center small">
+                                        <a class="btn" style="border-color:#DF7861; border-width:3px; color: #DF7861; font-weight: bold;">2019</a>
+                                        <a class="btn" style="border-color:#1CC88A; border-width:3px; color: #1CC88A; font-weight: bold; margin: 0px 50px 0px 50px;">2020</a>
+                                        <a class="btn" style="border-color:#59B3C0; border-width:3px; color: #59B3C0; font-weight: bold;">2021</a>
+
                                     </div>
                                 </div>
+                                
+                                
+                                    
+                                
+                                
                             </div>
                         </div>
 
@@ -540,7 +561,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/login">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -563,6 +584,7 @@
     <script src="static/js/demo/area.js"></script>
     <script src="static/js/demo/pie.js"></script>
     <script src="static/js/demo/download.js"></script>
+    <script src="static/js/demo.js"></script>
 
 </body>
 

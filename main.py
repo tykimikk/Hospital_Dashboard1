@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, flash, send_from_directory, send_file
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
 import requests
 import datetime
 import json
@@ -8,6 +10,30 @@ from collections import defaultdict
 import docarchive as dc
 import os
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'secret-key-goes-here'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+# CREATE TABLE
+
+
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    password = db.Column(db.String(100))
+    name = db.Column(db.String(1000))
+
+
+db.create_all()
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 
 searchinarch = []
 
@@ -33,14 +59,14 @@ def parseSearch(info):
         if len(info.split(" ")) == 1:
 
             for i in infos:
-                if i["nom"] == info or i["prenom"] == info:
+                if i["nom"].lower() == info.lower() or i["prenom"].lower() == info.lower():
                     searchinarch.append(i)
 
         elif len(info.split(" ")) == 2:
             name = info.split(" ")[0]
             surname = info.split(" ")[1]
             for i in infos:
-                if i["nom"] == name or i["prenom"] == surname:
+                if i["nom"].lower() == name.lower() or i["prenom"].lower() == surname.lower():
                     searchinarch.append(i)
     return searchinarch
 
@@ -65,7 +91,6 @@ def getYear(dt):
     return x
 
 
-password = "gh1996gh"
 infos = []
 malenb = 0
 dlrtypique = 0
@@ -107,7 +132,9 @@ asthenie = int((asthenie/cases)*100)
 fievre = int((fievre/cases)*100)
 
 
-casesMonth = defaultdict(list)
+casesMonth19 = defaultdict(list)
+casesMonth20 = defaultdict(list)
+casesMonth21 = defaultdict(list)
 
 months = ['Jan',
           'Feb',
@@ -122,9 +149,17 @@ months = ['Jan',
           'Nov',
           'Dec']
 for i in months:
-    casesMonth[i] = []
+    casesMonth19[i] = []
+    casesMonth20[i] = []
+    casesMonth21[i] = []
+
 for i in infos:
-    casesMonth[str(month(i["date_E"]))].append(i["nom"])
+    if getYear(i["date_E"]) == "2019":
+        casesMonth19[str(month(i["date_E"]))].append(i["nom"])
+    elif getYear(i["date_E"]) == "2020":
+        casesMonth20[str(month(i["date_E"]))].append(i["nom"])
+    elif getYear(i["date_E"]) == "2021":
+        casesMonth21[str(month(i["date_E"]))].append(i["nom"])
 casesAge = defaultdict(list)
 casesAge["ttf"] = []
 casesAge["fts"] = []
@@ -165,19 +200,63 @@ for i in infos:
         sirs["neg"].append(i["nom"])
 
 
-@ app.route('/login')
+@app.route('/register', methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        print(request.form.get('name'))
+        print(request.form.get('password'))
+        hash_and_salted_password = generate_password_hash(
+            request.form.get('password'),
+            method='pbkdf2:sha256',
+            salt_length=8
+        )
+        print(request.form.get('name'))
+        new_user = User(
+
+            name=request.form.get('name'),
+            password=hash_and_salted_password,
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        # Log in and authenticate user after adding details to database.
+        login_user(new_user)
+
+        return redirect(url_for("archive"))
+
+    return render_template("register.html")
+
+
+@ app.route('/login', methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        name = request.form.get('name')
+        password = request.form.get('password')
+
+        # Find user by email entered.
+        user = User.query.filter_by(name=name).first()
+
+        # Check stored password hash against entered password hashed.
+        try:
+
+            if check_password_hash(user.password, password):
+                login_user(user)
+                return redirect(url_for('archive'))
+        except:
+            pass
+
     return render_template("login.html")
 
 
 @ app.route('/')
 def index():
-    return render_template("index.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth=casesMonth, casesAge=casesAge, casesTrt=casesTrt, sirs=sirs, vom=vom, aeg=aeg, asthenie=asthenie, fievre=fievre)
+    return render_template("index.html", cases=cases, ratio=ratio, dlrt=dlrt, evolfav=evolfav, casesMonth19=casesMonth19, casesMonth20=casesMonth20, casesMonth21=casesMonth21, casesAge=casesAge, casesTrt=casesTrt, sirs=sirs, vom=vom, aeg=aeg, asthenie=asthenie, fievre=fievre)
 
 
 @ app.route('/charts')
 def charts():
-    return render_template("charts.html", casesMonth=casesMonth, casesAge=casesAge, casesBalt=casesBalt,  casesTrt=casesTrt, sirs=sirs)
+    return render_template("charts.html", casesMonth19=casesMonth19, casesMonth20=casesMonth20, casesMonth21=casesMonth21, casesAge=casesAge, casesBalt=casesBalt,  casesTrt=casesTrt, sirs=sirs)
 
 
 @ app.route('/tables')
@@ -186,16 +265,19 @@ def tables():
 
 
 @ app.route('/archive')
+@login_required
 def archive():
     return render_template("archive.html", data=infos)
 
 
 @ app.route('/add')
+@login_required
 def add():
     return render_template("add.html")
 
 
 @ app.route('/archive/<name>')
+@login_required
 def download(name):
     try:
         files = os.listdir(os.getcwd()+"/docx")
@@ -214,11 +296,24 @@ def page_not_found(e):
 
 
 @ app.route('/search', methods=['GET', 'POST', 'DELETE'])
+@login_required
 def search():
     name = request.form.get('searchbox')
     parseSearch(name)
 
     return render_template("search.html", data=searchinarch)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    # do stuff
+    return render_template('noaccess.html'), 404
 
 
 if __name__ == "__main__":

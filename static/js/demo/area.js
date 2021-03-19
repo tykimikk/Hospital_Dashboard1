@@ -37,9 +37,9 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Juil", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [{
-      label: "Cas",
+      label: "2019 : ",
       lineTension: 0.3,
-      backgroundColor: "#fcf8e8",
+      backgroundColor: "#fff",
       borderColor: "#ecb390",
       pointRadius: 3,
       pointBackgroundColor: "#df7861",
@@ -49,8 +49,37 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "#E74A3B",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [casesmonth.Jan.length, casesmonth.Feb.length, casesmonth.Mar.length, casesmonth.Apr.length, casesmonth.May.length, casesmonth.Jun.length, casesmonth.Jul.length, casesmonth.Aug.length, casesmonth.Sep.length, casesmonth.Oct.length, casesmonth.Nov.length, casesmonth.Dec.length],
-    }],
+      data: [casesmonth19.Jan.length, casesmonth19.Feb.length, casesmonth19.Mar.length, casesmonth19.Apr.length, casesmonth19.May.length, casesmonth19.Jun.length, casesmonth19.Jul.length, casesmonth19.Aug.length, casesmonth19.Sep.length, casesmonth19.Oct.length, casesmonth19.Nov.length, casesmonth19.Dec.length],
+    },{
+      label: "2020 : ",
+      lineTension: 0.3,
+      backgroundColor: "#fff",
+      borderColor: "#1CC88A",
+      pointRadius: 3,
+      pointBackgroundColor: "#1CC88A",
+      pointBorderColor: "#1CC88A",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "#1CC88A",
+      pointHoverBorderColor: "#1CC88A",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: [casesmonth20.Jan.length, casesmonth20.Feb.length, casesmonth20.Mar.length, casesmonth20.Apr.length, casesmonth20.May.length, casesmonth20.Jun.length, casesmonth20.Jul.length, casesmonth20.Aug.length, casesmonth20.Sep.length, casesmonth20.Oct.length, casesmonth20.Nov.length, casesmonth20.Dec.length],
+    },{
+      label: "2021 : ",
+      lineTension: 0.3,
+      backgroundColor: "#fff",
+      borderColor: "#59B3C0",
+      pointRadius: 3,
+      pointBackgroundColor: "#59B3C0",
+      pointBorderColor: "#59B3C0",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "#59B3C0",
+      pointHoverBorderColor: "#59B3C0",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: [casesmonth21.Jan.length, casesmonth21.Feb.length, casesmonth21.Mar.length, casesmonth21.Apr.length, casesmonth21.May.length, casesmonth21.Jun.length, casesmonth21.Jul.length, casesmonth21.Aug.length, casesmonth21.Sep.length, casesmonth21.Oct.length, casesmonth21.Nov.length, casesmonth21.Dec.length],
+    }
+  ],
   },
   options: {
     maintainAspectRatio: false,
@@ -113,7 +142,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return  number_format(tooltipItem.yLabel) + " " + datasetLabel   ;
+          return   datasetLabel + number_format(tooltipItem.yLabel) + " Cas" ;
         }
       }
     }

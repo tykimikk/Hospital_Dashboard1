@@ -15,7 +15,7 @@
          
         
 
-    <title>RDS - Archive</title>
+    <title>RDS - 404</title>
 
     <!-- Custom fonts for this template-->
     <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -49,32 +49,16 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Statistique Génerale</span></a>
             </li>
+
             <!-- Divider -->
-            
             <hr class="sidebar-divider">
 
-                {% if current_user.is_authenticated %}
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    AdminBoard
-                </div>
-    
-                <li class="nav-item">
-                    <a class="nav-link" href="/add">
-                        <i class="fas fa-fw fa-plus"></i>
-                        <span>Ajouter un dossier</span></a>
-                </li>
-               
-                
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-                
-                {% endif %}
+            
 
             
 
@@ -98,7 +82,7 @@
                     <span>Tablaux</span></a>
             </li>
             <!-- Nav Item - Archive -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/archive">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Archive</span></a>
@@ -129,7 +113,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
+                    
                     <!-- Topbar Search -->
                     <form method="POST" action="/search"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="/search" method="post">
@@ -145,6 +129,7 @@
                             </div>
                         </div>
                     </form>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -208,7 +193,6 @@
                         </nav>
                         
                         {% endif %}
-
                     </ul>
 
                 </nav>
@@ -217,33 +201,12 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Archive</h1>
-                    
-
-                    <div class="row">
-                        {% for i in data %}
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            
-                                            <div class="h5 mb-0 font-weight-bolder text-gray-800">{{i["nom"] + " "}} {{i["prenom"]}}</div>
-                                            <div class="h7 mb-0 font-weight-bold text-gray-600">{{i["age"] }} ans</div>
-                                            
-                                            <div ><a href="/archive/{{i["nom"]+ " "}}{{i["prenom"]}}">Télecharger</a></div>
-                                            
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-
-
-
+                    <!-- 404 Error Text -->
+                    <div class="text-center">
+                        <div class="error mx-auto" data-text="404">404</div>
+                        <p class="lead text-gray-800 mb-5">Page Not Found</p>
+                       
+                        <a href="/">&larr; Aller au page principale</a>
                     </div>
 
                 </div>
@@ -303,10 +266,6 @@
     <!-- Custom scripts for all pages-->
     <script src="static/js/sb-admin-2.min.js"></script>
     <script src="static/js/demo.js"></script>
-
-   
-
-    
 
 </body>
 
