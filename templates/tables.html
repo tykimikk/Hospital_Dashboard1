@@ -182,9 +182,19 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {% if current_user.name == "ghassen" %}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Chettouh Ghassen</span>
-                                <img class="img-profile rounded-circle"
-                                    src="static/img/liardusk.png">
+                                <img class="img-profile rounded-circle" src="static/img/liardusk.png">
+                                {% elif current_user.name == "feddanali" %} 
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Feddane Ali</span>
+                                <img class="img-profile rounded-circle" src="static/img/ali.jpg">  
+                                {% elif current_user.name == "drmoussaoui" %} 
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Dr Moussaoui</span>
+                                <img class="img-profile rounded-circle" src="static/img/pal.png"> 
+                                {% else %}      
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">CHU DOUERA</span>
+                                <img class="img-profile rounded-circle" src="static/img/pal.png"> 
+                                {% endif %}    
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -210,6 +220,7 @@
                         </nav>
                         
                         {% endif %}
+                        
                     </ul>
 
                 </nav>

@@ -203,8 +203,7 @@ for i in infos:
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        print(request.form.get('name'))
-        print(request.form.get('password'))
+
         hash_and_salted_password = generate_password_hash(
             request.form.get('password'),
             method='pbkdf2:sha256',
@@ -242,7 +241,7 @@ def login():
 
             if check_password_hash(user.password, password):
                 login_user(user)
-                return redirect(url_for('archive'))
+                return redirect(url_for('index'))
         except:
             pass
 
