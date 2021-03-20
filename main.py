@@ -263,6 +263,11 @@ def tables():
     return render_template("tables.html", data=infos)
 
 
+@ app.route('/theorie')
+def theorie():
+    return render_template("theory.html")
+
+
 @ app.route('/archive')
 @login_required
 def archive():
