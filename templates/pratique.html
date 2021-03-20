@@ -20,7 +20,7 @@
          
         
 
-    <title>RDS - 404</title>
+    <title>RDS - Partie Pratique</title>
 
     <!-- Custom fonts for this template-->
     <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,12 +61,25 @@
             </li>
 
             <!-- Divider -->
+            
             <hr class="sidebar-divider">
+            {% if current_user.is_authenticated %}
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                AdminBoard
+            </div>
 
+            <li class="nav-item">
+                <a class="nav-link" href="/add">
+                    <i class="fas fa-fw fa-plus"></i>
+                    <span>Ajouter un dossier</span></a>
+            </li>
+           
             
-
+            <!-- Divider -->
+            <hr class="sidebar-divider">
             
-
+            {% endif %}
             <!-- Heading -->
             <div class="sidebar-heading">
                 Plus des Donnés
@@ -78,7 +91,7 @@
                     <span>Théorie</span></a>
             </li>
             <!-- Nav Item - pratique -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/pratique">
                     <i class="fas fa-fw fa-file-archive"></i>
                     <span>Rapport (Pratique)</span></a>
@@ -226,15 +239,18 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- 404 Error Text -->
-                    <div class="text-center">
-                        <div class="error mx-auto" data-text="404">404</div>
-                        <p class="lead text-gray-800 mb-5">Tu n'est pas autorisé</p>
-                       
-                        <a href="/login">&larr; Connectez vous!</a>
-                    </div>
+                    <!-- Page Heading -->
+                    <div class="row">
+                    <h1 class="h3 mb-2 text-gray-800">Pancréatite Aigue Biliaire Rapport (Partie Pratique)</h1>
 
-                </div>
+                    <a href="/static/docs/rds1.pdf" style="margin: 0px 20px 0px 20px; line-height: 2.5em;">Download PDF</a>
+                    <a href="/static/docs/rds1.docx" style="line-height: 2.5em;">Download DOCX</a>
+                    </div>
+                    <hr>
+                    <iframe src="/static/docs/rds1.pdf#toolbar=0" width="100%" height="600px" frameborder="2"></iframe>
+
+                    
+            </div>
                 <!-- /.container-fluid -->
 
             </div>

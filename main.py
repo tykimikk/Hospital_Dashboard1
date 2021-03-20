@@ -284,6 +284,11 @@ def theorie():
     return render_template("theory.html")
 
 
+@ app.route('/pratique')
+def pratique():
+    return render_template("pratique.html")
+
+
 @ app.route('/archive')
 @login_required
 def archive():

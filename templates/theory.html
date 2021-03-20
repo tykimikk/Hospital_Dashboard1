@@ -90,7 +90,11 @@
                     <i class="fas fa-fw fa-pen"></i>
                     <span>Théorie</span></a>
             </li>
-            
+            <!-- Nav Item - pratique -->
+            <li class="nav-item">
+                <a class="nav-link" href="/pratique">
+                    <i class="fas fa-fw fa-file-archive"></i>
+                    <span>Rapport (Pratique)</span></a>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/charts">
@@ -239,10 +243,12 @@
                     <div class="row">
                     <h1 class="h3 mb-2 text-gray-800">Pancréatite Aigue Biliaire du point de vue Théorique</h1>
 
-                    <a href="/static/docs/theorie.pdf" style="margin: 0px 20px 0px 20px; line-height: 2.5em;">Download PDF</a>
-                    <a href="/static/docs/theorie.docx" style="line-height: 2.5em;">Download DOCX</a>
+                    <a href="/static/docs/theorie.pdf" style="margin: 0px 20px 0px 20px; line-height: 2.5em;" class="mb-2">Download PDF</a>
+                    <a href="/static/docs/theorie.docx" style="line-height: 2.5em;margin: 0px 20px 0px 0px; " class="mb-2">Download DOCX</a>
+                    <button class="mb-2 btn btn-primary" id="pdg" >Afficher La Page De Garde</button>
                     </div>
                     <hr>
+                    <iframe src="/static/docs/pdg.pdf#toolbar=0" width="100%" height="600px" frameborder="2" style="display: none;" id="pdgiframe"></iframe>
                     <iframe src="/static/docs/theorie.pdf#toolbar=0" width="100%" height="600px" frameborder="2"></iframe>
 
                     
@@ -303,7 +309,20 @@
     <!-- Custom scripts for all pages-->
     <script src="static/js/sb-admin-2.min.js"></script>
     <script src="static/js/demo.js"></script>
+    <script>
+       document.getElementById("pdg").addEventListener("click",function(){
+           if (this.innerHTML == "Afficher La Page De Garde"){
+               document.getElementById("pdgiframe").style.display = "block"
+               document.getElementById("pdg").innerHTML = "Cacher La page de garde"
+           }
+           else {
+               document.getElementById("pdgiframe").style.display = "none"
+               document.getElementById("pdg").innerHTML = "Afficher La Page De Garde"
+           }
 
+           
+       })
+    </script>
 </body>
 
 </html>
