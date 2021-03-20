@@ -214,7 +214,7 @@ for i in infos:
     else:
         sirs["neg"].append(i["nom"])
 
-"""
+'''
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -240,8 +240,7 @@ def register():
         return redirect(url_for("archive"))
 
     return render_template("register.html")
-
-"""
+'''
 
 
 @ app.route('/login', methods=["GET", "POST"])
