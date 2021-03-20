@@ -2,6 +2,11 @@
 <html lang="en">
     
 <head>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon/site.webmanifest">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -236,42 +241,40 @@
                     <form action="/add" method="post"> 
                     <div class="row">
                     <div class="col-xl-3 col-md-6 mb-4"> 
+                        <h4>Infos</h4>
                         <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
                         <div class="input-group"><input type="text" name="prenom" class="form-control bg-white border-2 small" placeholder="Prénom"> </div><br> <br>
                         <div class="input-group"><input type="number" name="age" class="form-control bg-white border-2 small" placeholder="Age"> </div><br> <br>
                         <div class="input-group"><input type="date" name="date_E" class="form-control bg-white border-2 small" placeholder="Date D'entree"> </div><br> <br>
                         <div class="input-group"><input type="date" name="date_S" class="form-control bg-white border-2 small" placeholder="Date du sorite"> </div><br> <br>
+                        <div class="input-group"><input type="number" name="imc" class="form-control bg-white border-2 small" placeholder="IMC"> </div><br> <br>
+                        <div class="input-group"><input type="button" name="male" class="btn btn-info" value="M" style="margin: 0px 30px 0px 60px;"> <input value="F" type="button" name="female" class="btn btn-danger" style="margin: 0px 60px 0px 30px;"> </div><br> <br>
+                        
                     </div> 
                      <!-- Clinique-->
 
                      <div class="col-xl-3 col-md-6 mb-4"> 
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
+                        <h4>Clinique</h4>
+                        <div class="input-group"><input type="text" name="motifs" class="form-control bg-white border-2 small" placeholder="Motif de Consultation"> </div><br> <br>
+                        <div class="input-group"><input type="text" name="sps" class="form-control bg-white border-2 small" placeholder="Signes Physiques"> </div><br> <br>
+                        
                         
                         </div> 
-                     <!-- Clinique-->
+                     <!-- Paraclinique-->
 
                      <div class="col-xl-3 col-md-6 mb-4"> 
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
+                        <h4>Paraclinique</h4>
+                        <div class="input-group"><input type="text" name="bio_autres" class="form-control bg-white border-2 small" placeholder="Autres Signes Biologiques"> </div><br> <br>
+                        <div class="input-group"><textarea name="echo"  cols="30" rows="2" class="form-control bg-white border-2 small" placeholder="Echographie"></textarea></div><br> <br>
+                        <div class="input-group"><textarea name="tdm"  cols="30" rows="2" class="form-control bg-white border-2 small" placeholder="TDM"></textarea></div><br> <br>
+                        
                         
                         </div> 
-                    <!-- Clinique-->
+                    <!-- Treatement-->
 
                     <div class="col-xl-3 col-md-6 mb-4"> 
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
-                        <div class="input-group"><input type="text" name="nom" class="form-control bg-white border-2 small" placeholder="Nom"> </div><br> <br>
+                        <h4>Trt + Evo</h4>
+                        
                         
                         </div>        
 
