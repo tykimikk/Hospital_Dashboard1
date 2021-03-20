@@ -285,18 +285,19 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">M</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-info">M</div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="progress progress-sm mr-2">
+                                                    <div class="progress progress-sm mr-2" style="background-color: #DF7861;">
                                                         <div class="progress-bar bg-info" role="progressbar"
                                                             style="width: {{ratio}}%" aria-valuenow="{{ratio}}" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
-                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">F</div>
+                                                <div class="h5 mb-0 mr-3 font-weight-bold" style="color: #DF7861;">F</div>
                                             </div>
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">{{ratio}}%</div>
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1"><span style="margin: 0px 82px 0px 0px;" class=" text-info">{{ratio}}% </span> <span style="margin: 0px 0px 0px 82px; color: #DF7861;">{{100 - ratio}}%</span></div>
+                                            
                                         </div>
                                         <div class="col-auto">
                                             <i class="em em-couple" aria-role="presentation" aria-label="MAN AND WOMAN HOLDING HANDS"></i>

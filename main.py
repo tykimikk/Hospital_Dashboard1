@@ -186,6 +186,21 @@ for i in infos:
         casesBalt["D"].append(i["nom"])
     elif i["balt"] == "E":
         casesBalt["E"].append(i["nom"])
+casesBio = defaultdict(list)
+for i in infos:
+    if int(i["hb"]) < 12:
+        casesBio["hb"].append(i["nom"])
+    if int(i["gb"]) > 10:
+        casesBio["gb"].append(i["nom"])
+    if not i["bio_autres"] == []:
+        for u in i["bio_autres"]:
+            if u == "perturbation de bilan h\u00e9patique":
+                casesBio["hep"].append(i["nom"])
+            if u == "hyperglyc\u00e9mie":
+                casesBio["glyc"].append(i["nom"])
+            if u == "Hyponatr\u00e9mie":
+                casesBio["ion"].append(i["nom"])
+
 casesTrt = defaultdict(list)
 for i in infos:
     if i["trtchir"]:
@@ -255,7 +270,7 @@ def index():
 
 @ app.route('/charts')
 def charts():
-    return render_template("charts.html", casesMonth19=casesMonth19, casesMonth20=casesMonth20, casesMonth21=casesMonth21, casesAge=casesAge, casesBalt=casesBalt,  casesTrt=casesTrt, sirs=sirs)
+    return render_template("charts.html", casesMonth19=casesMonth19, casesMonth20=casesMonth20, casesMonth21=casesMonth21, casesAge=casesAge, casesBalt=casesBalt, casesBio=casesBio,  casesTrt=casesTrt, sirs=sirs)
 
 
 @ app.route('/tables')

@@ -123,7 +123,7 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: ["#ECB390","#6C5C99", "#1CC88A", "#F6C23E" , "#F4F5F8"],
       hoverBackgroundColor: ["#ECB390","#6C5C99", "#1CC88A", "#F6C23E" , "#F4F5F8"],
       borderColor: ["#ECB390","#6C5C99", "#1CC88A", "#F6C23E" , "#F4F5F8"],
-      data: [casesbalt.A.length, casesbalt.B.length, casesbalt.C.length, casesbalt.D.length, casesbalt.E.length],
+      data: [casesbio.hb.length, casesbio.gb.length, casesbio.hep.length, casesbio.glyc.length, casesbio.ion.length],
     }]
   },
   options: {
