@@ -194,7 +194,7 @@ for i in infos:
         casesBio["gb"].append(i["nom"])
     if not i["bio_autres"] == []:
         for u in i["bio_autres"]:
-            if u == "perturbation de bilan h\u00e9patique":
+            if u == "Bilan h\u00e9patique perturb\u00e9":
                 casesBio["hep"].append(i["nom"])
             if u == "hyperglyc\u00e9mie":
                 casesBio["glyc"].append(i["nom"])
